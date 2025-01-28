@@ -1,5 +1,5 @@
 ---
-title: "Programa de Prevención & Control del Dengue | 2024"
+title: "Programa de Prevención & Control del Dengue | 2025"
 format: 
   dashboard:
       nav-buttons: [twitter, github, facebook]
@@ -12,9 +12,9 @@ mapview::mapviewOptions(default = TRUE,
                         basemaps.color.shuffle = FALSE)
 
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
-load("/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/8.RData/denmex_2024.RData")
+load("/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2025/8.RData/denmex_2025.RData")
 } else if(as.vector(Sys.info()["sysname"]) == "Windows"){
-   load("D:\\OneDrive\\proyects\\geocoding_mex\\2024\\8.RData\\denmex_2024.RData")
+   load("D:\\OneDrive\\proyects\\geocoding_mex\\2025\\8.RData\\denmex_2025.RData")
 } else if(as.vector(Sys.info()["sysname"]) == "Linux"){
     
 }
@@ -28,26 +28,8 @@ library(magrittr)
 ::: panel-tabset
 ### [**Cuernavaca**]{style="color:#990000"}
 
-```{r}
-denhotspots::transmission_chains_map(geocoded_dataset = z,
-                                     cve_edo = "17",
-                                     locality = c("Cuernavaca", "Temixco",
-                                                  "Emiliano Zapata",
-                                                  "Tres de Mayo",
-                                                  "Jiutepec",
-                                                  "San Miguel Acapantzingo"),
-                                     dengue_cases = "Confirmado")
-```
-
-
 ### [**Cuautla**]{style="color:#990000"}
 
-```{r}
-denhotspots::transmission_chains_map(geocoded_dataset = z,
-                                     cve_edo = "17",
-                                     locality = "Cuautla",
-                                     dengue_cases = "Confirmado")
-```
 
 
 :::
@@ -61,7 +43,7 @@ denhotspots::transmission_chains_map(geocoded_dataset = z,
 
 ### [**Cuernavaca**]{style="color:#990000"}
 
-```{r}
+```{r heatmap_cuernavaca}
 densnv::mp_heatmap(geocoded_datasets = z,
                    cve_edo = "17",
                    locality = c("Cuernavaca", "Temixco",
@@ -79,7 +61,7 @@ densnv::mp_heatmap(geocoded_datasets = z,
 
 ### [**Cuautla**]{style="color:#990000"}
 
-```{r}
+```{r heatmap_cuautla}
 densnv::mp_heatmap(geocoded_datasets = z,
                    cve_edo = "17",
                    locality = "Cuautla",
@@ -103,33 +85,9 @@ densnv::mp_heatmap(geocoded_datasets = z,
 
 ### [**Cuernavaca**]{style="color:#990000"}
 
-```{r}
-
-if(as.vector(Sys.info()["sysname"]) == "Darwin"){
-    load("~/Dropbox/r_developments/r_dashboards/netlify/transmission_chains/transmission_chains_2024/lgcp_cuerna_2024.RData")
-} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
-   load("C:\\Users\\Felipe\\Dropbox\\r_developments\\r_dashboards\\netlify\\transmission_chains\\transmission_chains_2024\\lgcp_cuerna_2024.RData")
-} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
-    
-}
-
-lgcp_cuerna_2024$map
-```
-
 
 ### [**Cuautla**]{style="color:#990000"}
 
-```{r}
-if(as.vector(Sys.info()["sysname"]) == "Darwin"){
-    load("~/Dropbox/r_developments/r_dashboards/netlify/transmission_chains/transmission_chains_2024/lgcp_cuutla_2024.RData")
-} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
-   load("C:\\Users\\Felipe\\Dropbox\\r_developments\\r_dashboards\\netlify\\transmission_chains\\transmission_chains_2024\\lgcp_cuutla_2024.RData")
-} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
-    
-}
-
-lgcp_cuautla_2024$map
-```
 
 
 :::
