@@ -1,0 +1,135 @@
+---
+title: "Programa de Prevención & Control del Dengue | 2024"
+format: 
+  dashboard:
+      nav-buttons: [twitter, github, facebook]
+theme: custom.scss
+---
+
+```{r setup}
+library(sf)
+mapview::mapviewOptions(default = TRUE,
+                        basemaps.color.shuffle = FALSE)
+
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+load("/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2024/8.RData/denmex_2024.RData")
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+   load("D:\\OneDrive\\proyects\\geocoding_mex\\2024\\8.RData\\denmex_2024.RData")
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+library(magrittr)
+```
+
+
+# [**Cadenas de Transmisión**]{style="font-size:8pt"}
+
+::: panel-tabset
+### [**Cuernavaca**]{style="color:#990000"}
+
+```{r}
+denhotspots::transmission_chains_map(geocoded_dataset = z,
+                                     cve_edo = "17",
+                                     locality = c("Cuernavaca", "Temixco",
+                                                  "Emiliano Zapata",
+                                                  "Tres de Mayo",
+                                                  "Jiutepec",
+                                                  "San Miguel Acapantzingo"),
+                                     dengue_cases = "Confirmado")
+```
+
+
+### [**Cuautla**]{style="color:#990000"}
+
+```{r}
+denhotspots::transmission_chains_map(geocoded_dataset = z,
+                                     cve_edo = "17",
+                                     locality = "Cuautla",
+                                     dengue_cases = "Confirmado")
+```
+
+
+:::
+
+
+
+
+# [**Mapas de Calor**]{style="font-size:8pt"}
+
+::: panel-tabset
+
+### [**Cuernavaca**]{style="color:#990000"}
+
+```{r}
+densnv::mp_heatmap(geocoded_datasets = z,
+                   cve_edo = "17",
+                   locality = c("Cuernavaca", "Temixco",
+                                "Emiliano Zapata",
+                                "Tres de Mayo",
+                                "Jiutepec"),
+                   status_caso = c(1, 2),
+                   week = c(1:53),
+                   zoom = NULL,
+                   map_type = NULL,
+                   alpha = 0.6,
+                   static = FALSE,
+                   palette = viridis::turbo)
+```
+
+### [**Cuautla**]{style="color:#990000"}
+
+```{r}
+densnv::mp_heatmap(geocoded_datasets = z,
+                   cve_edo = "17",
+                   locality = "Cuautla",
+                   status_caso = c(1, 2),
+                   week = c(1:53),
+                   zoom = NULL,
+                   map_type = NULL,
+                   alpha = 0.6,
+                   static = FALSE,
+                   palette = viridis::turbo)
+```
+
+
+:::
+
+
+
+# [**Log-Gaussian Cox Processes**]{style="font-size:8pt"}
+
+::: panel-tabset
+
+### [**Cuernavaca**]{style="color:#990000"}
+
+```{r}
+
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Dropbox/r_developments/r_dashboards/netlify/transmission_chains/transmission_chains_2024/lgcp_cuerna_2024.RData")
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+   load("C:\\Users\\Felipe\\Dropbox\\r_developments\\r_dashboards\\netlify\\transmission_chains\\transmission_chains_2024\\lgcp_cuerna_2024.RData")
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+lgcp_cuerna_2024$map
+```
+
+
+### [**Cuautla**]{style="color:#990000"}
+
+```{r}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Dropbox/r_developments/r_dashboards/netlify/transmission_chains/transmission_chains_2024/lgcp_cuutla_2024.RData")
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+   load("C:\\Users\\Felipe\\Dropbox\\r_developments\\r_dashboards\\netlify\\transmission_chains\\transmission_chains_2024\\lgcp_cuutla_2024.RData")
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+lgcp_cuautla_2024$map
+```
+
+
+:::
