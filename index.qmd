@@ -12,7 +12,7 @@ mapview::mapviewOptions(default = TRUE,
                         basemaps.color.shuffle = FALSE)
 
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
-load("/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2025/8.RData/denmex_2025.RData")
+load("/Users/felipedzul/OneDrive/proyects/geocoding_mex/2025/8.RData/denmex_2025.RData")
 } else if(as.vector(Sys.info()["sysname"]) == "Windows"){
    load("D:\\OneDrive\\proyects\\geocoding_mex\\2025\\8.RData\\denmex_2025.RData")
 } else if(as.vector(Sys.info()["sysname"]) == "Linux"){
