@@ -10,15 +10,7 @@ theme: custom.scss
 library(sf)
 mapview::mapviewOptions(default = TRUE,
                         basemaps.color.shuffle = FALSE)
-
-if(as.vector(Sys.info()["sysname"]) == "Darwin"){
-load("/Users/felipedzul/OneDrive/proyects/geocoding_mex/2025/8.RData/denmex_2025.RData")
-} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
-   load("D:\\OneDrive\\proyects\\geocoding_mex\\2025\\8.RData\\denmex_2025.RData")
-} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
-    
-}
-
+load("~/Documents/geocoding_mx/2025/8.RData/denmex_2025.RData")
 library(magrittr)
 ```
 
@@ -103,7 +95,7 @@ denhotspots::space_time_link_map(x =x,
 ### [**Cuernavaca**]{style="color:#990000"}
 
 ```{r heatmap_cuernavaca}
-densnv::mp_heatmap(geocoded_datasets = z,
+densnv::mp_heatmap(geocoded_dataset = z,
                    cve_edo = "17",
                    locality = c("Cuernavaca", "Temixco",
                                 "Emiliano Zapata",
@@ -122,7 +114,7 @@ densnv::mp_heatmap(geocoded_datasets = z,
 ### [**Cuautla**]{style="color:#990000"}
 
 ```{r heatmap_cuautla}
-densnv::mp_heatmap(geocoded_datasets = z,
+densnv::mp_heatmap(geocoded_dataset = z,
                    cve_edo = "17",
                    locality = "Cuautla",
                    status_caso = c(1, 2),
@@ -134,21 +126,6 @@ densnv::mp_heatmap(geocoded_datasets = z,
                    static = FALSE,
                    palette = viridis::turbo)
 ```
-
-
-:::
-
-
-
-# [**Log-Gaussian Cox Processes**]{style="font-size:8pt"}
-
-::: panel-tabset
-
-### [**Cuernavaca**]{style="color:#990000"}
-
-
-### [**Cuautla**]{style="color:#990000"}
-
 
 
 :::
